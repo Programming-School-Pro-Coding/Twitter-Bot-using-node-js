@@ -1,12 +1,14 @@
-const {TwitterApi} = require('twitter-api-v2');
-
-const quote = require('inspirational-quotes');
-
+const { TwitterApi } = require('twitter-api-v2');
 const config = require('./config');
+const  quotes = require('inspirational-quotes');
+const client =  new TwitterApi(config);
+const quote = quotes.getQuote().text;
+const author = quotes.getQuote().author;
 
-const client = new TwitterApi(config);
-
-const getQuote = async()=>{
-    let getdata = await client.v1.post('statuses/update.json', {status: quote.getRandomQuote()}, {forceBodyMode: 'url'});
-    console.log(getdata);
+const tweetQuote = async () =>{
+    let tweet = await client.v1.tweet(`${quote}\nBy - ${author}`);
+    console.log(tweet); // for testing purposes
 }
+
+tweetQuote();
+
