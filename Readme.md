@@ -19,6 +19,6 @@ const config = {
 
 module.exports = config;
 ```
-- After replacing the parameters run ```node app.js``` and boom see your twitter account.
+- After replacing the parameters run `npm start` and boom see your twitter account.
 
 ### This project is open for everyone to contribute to it so feel free to raise issues and improve the codebase
